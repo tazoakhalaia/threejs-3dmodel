@@ -72,7 +72,7 @@ export class GameScene {
 
   createModel() {
     const loader = new GLTFLoader();
-    loader.load("model/Soldier.glb", (model) => {
+    loader.load("./model/Soldier.glb", (model) => {
       this.player = model.scene;
       this.player.scale.set(5, 5, 5);
       this.player.position.set(0,0,20)
