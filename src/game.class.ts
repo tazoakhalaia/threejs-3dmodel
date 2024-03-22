@@ -36,11 +36,7 @@ export class GameScene {
     document.body.appendChild(this.renderer.domElement);
   }
 
-  animate() {
-    requestAnimationFrame(this.animate.bind(this));
-    this.mixer.update(0.01);
-    this.renderer.render(this.scene, this.camera);
-  }
+
 
   drawPlane() {
     const gridHelper = new THREE.GridHelper(1000);
@@ -95,5 +91,10 @@ export class GameScene {
   orbitControl() {
     const orbit = new OrbitControls(this.camera, this.renderer.domElement);
     orbit.update();
+  }
+  animate() {
+    requestAnimationFrame(this.animate.bind(this));
+    // this.mixer.update(0.01);
+    this.renderer.render(this.scene, this.camera);
   }
 }
