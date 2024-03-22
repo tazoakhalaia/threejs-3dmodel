@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 export class GameScene {
   scene: any;
@@ -15,8 +15,8 @@ export class GameScene {
     this.drawScene();
     this.drawPlane();
     this.orbitControl();
-    // this.drawSphere()
-    this.createModel();
+    this.drawSphere()
+    // this.createModel();
     this.createLight();
     this.movement()
     this.animate();
@@ -70,18 +70,18 @@ export class GameScene {
     });
   }
 
-  createModel() {
-    const loader = new GLTFLoader();
-    loader.load("./model/Soldier.glb", (model) => {
-      this.player = model.scene;
-      this.player.scale.set(5, 5, 5);
-      this.player.position.set(0,0,20)
-      this.mixer = new THREE.AnimationMixer(this.player);
-      const action = this.mixer.clipAction(model.animations[3]);
-      action.play();
-      this.scene.add(this.player);
-    });
-  }
+  // createModel() {
+  //   const loader = new GLTFLoader();
+  //   loader.load("./model/Soldier.glb", (model) => {
+  //     this.player = model.scene;
+  //     this.player.scale.set(5, 5, 5);
+  //     this.player.position.set(0,0,20)
+  //     this.mixer = new THREE.AnimationMixer(this.player);
+  //     const action = this.mixer.clipAction(model.animations[3]);
+  //     action.play();
+  //     this.scene.add(this.player);
+  //   });
+  // }
 
   createLight() {
     const ambient = new THREE.AmbientLight("white", 10);
