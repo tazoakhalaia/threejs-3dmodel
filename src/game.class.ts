@@ -10,7 +10,7 @@ export class GameScene {
   mixerUpdate = 0.01;
   pos = 0;
   player: any;
-  loader = new THREE.TextureLoader().load('./model/gg.jpg')
+  loader = new THREE.TextureLoader().load('public/model/gg.jpg')
 
   init() {
     this.drawScene();
