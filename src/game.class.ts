@@ -10,6 +10,7 @@ export class GameScene {
   mixerUpdate = 0.01;
   pos = 0;
   player: any;
+  loader = new THREE.TextureLoader().load('./model/gg.jpg')
 
   init() {
     this.drawScene();
@@ -30,7 +31,7 @@ export class GameScene {
       0.1,
       1000
     );
-    this.camera.position.set(-2, 10, 30);
+    this.camera.position.set(-5, 50, 100);
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(this.renderer.domElement);
@@ -44,17 +45,20 @@ export class GameScene {
     const planeGeometry = new THREE.PlaneGeometry(1000, 1000);
     const planeMaterial = new THREE.MeshBasicMaterial({ color: "white" });
     const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    plane.material.side = THREE.DoubleSide
     plane.rotation.x = -0.5 * Math.PI;
     this.scene.add(plane);
   }
 
   drawSphere() {
-    const sphereGeomet = new THREE.SphereGeometry();
+    const sphereGeomet = new THREE.SphereGeometry(25);
     const sphereMaterial = new THREE.MeshBasicMaterial({
-      color: "blue",
+      color: "white",
+      map: this.loader
     });
     const sphere = new THREE.Mesh(sphereGeomet, sphereMaterial);
-    sphere.position.y = 1;
+    sphere.position.y = 30;
+    sphere.rotation.y = 4.5
     this.scene.add(sphere);
   }
 
